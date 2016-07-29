@@ -1,0 +1,22 @@
+<article class="pill-box row row-clear">
+	<div class="pill-box-header">
+		<tu-avatar class="flex-left" src="$ctrl.user.avatar" name="$ctrl.user.name"></tu-avatar>
+		<div class="pill-box-title">
+			<h3 class="title">{{ $ctrl.user.name }}</h1>
+			<h4 class="subtitle">{{ $ctrl.user.occupation }}</h2>
+		</div>
+	</div>
+	<div ng-if="$ctrl.metaData" class="col-xs-12 col-sm-7">
+		<tu-conversions-histogram data="$ctrl.metaData.conversions" start-date="$ctrl.startDate" end-date="$ctrl.endDate"></tu-conversions-histogram>
+	</div>
+	<div ng-if="$ctrl.metaData" class="align-right col-xs-12 col-sm-5">
+		<div class="stat stat-secondary">{{ $ctrl.metaData.impressions }}</div>
+		<div class="label-stat">impressions</div>
+		<div class="stat stat-tertiary">{{ $ctrl.metaData.conversions.length }}</div>
+		<div class="label-stat">conversions</div>
+		<div class="stat stat-primary stat-lg">{{ $ctrl.metaData.revenue | currency }}</div>
+	</div>
+	<div ng-if="!$ctrl.metaData" class="align-center">
+		<span class="loader">Loading...</span>
+	</div>
+</article>

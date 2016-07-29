@@ -1,0 +1,33 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - typography
+// global typography styles
+.title {
+	font-weight: bold;
+}
+.subtitle {
+	color: $lightText;
+}
+.stat {
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 18px;
+}
+.stat-primary {
+	color: $primaryColor;
+}
+.stat-secondary {
+	color: $secondaryColor;
+}
+.stat-tertiary {
+	color: $tertiaryColor;
+}
+.stat-lg {
+	font-size: 20px;
+	line-height: 24px;
+}
+.label-stat {
+	color: gray;
+}
+.loader {
+	font-size: 24px;
+}
