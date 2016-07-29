@@ -11,17 +11,22 @@ export default function (app) {
 				}
 
 				function startWorker(ids) {
-					var worker = new Worker;
-					worker.onmessage = function(event) {
-						if(event.data.status === 'close') {
-							worker.terminate();
-							$rootScope.$digest();
-						} else if (event.data.status === 'update'){
-							var user = usersModel.get(event.data.id);
-							user.logs = event.data.logs;
+					// Check if logs are not loaded/cached
+					if(!usersModel.getAll()[0].logs) {
+						var worker = new Worker;
+						worker.onmessage = function(event) {
+							if(event.data.status === 'close') {
+								worker.terminate();
+								$rootScope.$digest();
+							} else if (event.data.status === 'update'){
+								var user = usersModel.get(event.data.id);
+								user.logs = event.data.logs;
+							}
 						}
+						worker.postMessage(ids);
+					} else {
+						console.log('cached')
 					}
-					worker.postMessage(ids);
 				}
 
 				function parseMetaDataForRange(user, startDate, endDate) {

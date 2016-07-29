@@ -5,7 +5,7 @@ function routeConfig($urlRouterProvider) {
 
 
 
-  $urlRouterProvider.otherwise('/users');
+  $urlRouterProvider.otherwise('/users?startDate=2013-04-12&endDate=2013-04-31');
 
 }
 
